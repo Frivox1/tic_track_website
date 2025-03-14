@@ -45,3 +45,57 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll(".hero");
+
+    function checkScroll() {
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 50) {
+                el.style.animationPlayState = "running";
+            }
+        });
+    }
+
+    window.addEventListener("scroll", checkScroll);
+    checkScroll();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const screenshots = document.querySelectorAll(".feature-item");
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target); // On arrête d'observer après l'animation
+            }
+        });
+    }, {
+        threshold: 0.6
+    });
+
+    screenshots.forEach(screenshot => {
+        observer.observe(screenshot);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const screenshots = document.querySelectorAll(".screenshot-item");
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.6
+    });
+
+    screenshots.forEach(screenshot => {
+        observer.observe(screenshot);
+    });
+});

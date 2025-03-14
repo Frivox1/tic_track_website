@@ -375,3 +375,59 @@ body {
         grid-template-columns: repeat(1, 1fr); /* 2 éléments par ligne */
     }
 }
+
+/* On tente les animations */
+@keyframes slide-up-slow {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation d'apparition des sections */
+.hero {
+    animation: slide-up 1s ease-in-out;
+}
+
+.hero-image {
+    animation: slide-up-slow 1.5s ease-in-out;
+}
+
+.feature-item {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.feature-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation d'apparition progressive */
+.screenshot-item {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Quand l'élément est visible */
+.screenshot-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
