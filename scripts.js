@@ -18,20 +18,22 @@ faqToggles.forEach(toggle => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const downloadBtn = document.querySelector(".btn[download]");
+    const downloadBtns = document.querySelectorAll(".install-buttons .btn");
     const modal = document.getElementById("download-modal");
     const closeModal = document.querySelector(".close");
 
-    if (downloadBtn) {
-        downloadBtn.addEventListener("click", function (event) {
+    downloadBtns.forEach(btn => {
+        btn.addEventListener("click", function (event) {
             event.preventDefault();
             modal.classList.add("show");
-            
+
+            const downloadLink = this.href;
+
             setTimeout(() => {
-                window.location.href = downloadBtn.href;
+                window.location.href = downloadLink;
             }, 1000);
         });
-    }
+    });
 
     if (closeModal) {
         closeModal.addEventListener("click", function () {
