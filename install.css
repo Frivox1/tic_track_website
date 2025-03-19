@@ -43,16 +43,53 @@ body {
     padding: 80px 10%;
 }
 
+/* ANIMATIONS */
+@keyframes slideUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* TITRE ET SOUS-TITRE */
 .title {
     font-size: 3rem;
     font-weight: bold;
     color: black;
     margin-bottom: 20px;
+    animation: slideDown 1s ease-out forwards; /* Animation pour le titre */
+    opacity: 0;
 }
 
 .subtitle {
     font-size: 1.5rem;
     margin-bottom: 40px;
+    animation: fadeIn 1s ease-out 0.5s forwards; /* Animation pour le sous-titre */
+    opacity: 0;
 }
 
 /* INSTALL BUTTONS */
@@ -61,22 +98,32 @@ body {
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
-    margin-top: 120px;
+    margin-top: 150px;
 }
 
 .install-buttons .btn {
-    padding: 20px 40px;
-    font-size: 1.5rem;
-    width: 250px;
-}
-
-.btn {
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0; /* Définir l'opacité à 0 au départ */
     background-color: var(--primary-color);
     color: white;
     text-decoration: none;
     border-radius: 10px;
     transition: background-color 0.3s;
     font-size: 1.5rem;
+    padding: 20px 40px;
+    width: 250px;
+}
+
+.install-buttons .btn:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.install-buttons .btn:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.install-buttons .btn:nth-child(3) {
+    animation-delay: 0.9s;
 }
 
 .btn:hover {
@@ -86,27 +133,27 @@ body {
 /* INSTALLATION INSTRUCTIONS */
 .install-instructions {
     padding: 40px 5%;
-    margin-top: 150px;
-    box-shadow: none;
-    text-align: center;
+    margin-top: 200px; /* Augmenter l'espacement pour placer la section plus bas */
+    box-shadow: none; /* Retirer l'ombre portée */
+    text-align: center; /* Centrer le texte */
 }
 
 .install-instructions h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    font-weight: normal;
+    font-weight: normal; /* Rendre le titre moins "lourd" */
 }
 
 .instruction-item {
     display: flex;
     align-items: center;
     gap: 15px;
-    background-color: transparent;
+    background-color: transparent; /* Retirer le fond gris */
     padding: 15px;
-    border-radius: 0;
+    border-radius: 0; /* Retirer les bords arrondis */
     margin-top: 15px;
-    box-shadow: none;
-    text-align: left;
+    box-shadow: none; /* Retirer l'ombre portée */
+    text-align: left; /* Garde le texte aligné à gauche */
 }
 
 .instruction-item i {
@@ -117,7 +164,7 @@ body {
 .instruction-item h3 {
     font-size: 1.5rem;
     margin: 0;
-    font-weight: normal;
+    font-weight: normal; /* Rendre le texte plus léger */
 }
 
 /* FOOTER */
